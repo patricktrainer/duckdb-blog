@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db');  // the DuckDB connection
+const db = require('../db');
 
 router.get('/', async (req, res) => {
     try {
-        const result = await db.query('SELECT * FROM your_table');  // Your query here
+        const result = await db.query('SELECT count(*) FROM sample_data.hn.hacker_news');
         res.json(result);
     } catch(err) {
         console.error(err);
